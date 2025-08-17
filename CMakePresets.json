@@ -1,0 +1,41 @@
+{
+	"version": 9,
+	"cmakeMinimumRequired": {
+		"major": 4,
+		"minor": 0,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "base",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/out/build/${presetName}",
+			"installDir": "${sourceDir}/out/install/${presetName}",
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "cl",
+				"CMAKE_CXX_COMPILER": "cl"
+			},
+			"environment": {
+				"VSCMD_START_DIR": "${sourceDir}"
+			}
+		},
+		{
+			"name": "x64-Debug",
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"PNM_BUILD_SAMPLES": "ON",
+				"PNM_BUILD_TEST": "ON"
+			}
+		},
+		{
+			"name": "x64-Release",
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release",
+				"PNM_BUILD_SAMPLES": "OFF",
+				"PNM_BUILD_TEST": "OFF"
+			}
+		}
+	]
+}

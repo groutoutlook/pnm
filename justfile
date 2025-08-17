@@ -19,15 +19,18 @@ alias r := run
 default_args := 'args here'
 run args=default_args:
     @Write-Host {{default_args}} -ForegroundColor Red
+    cd out\build\x64-debug\ && ninja test
+    sample\unicolor.exe # those samples...
+    sample\mandelbrot.exe
+
     
+alias t := test
+test:
+    cd out\build\x64-debug\ && ninja test
 
 alias fmt := format
 format:
     # format plesase. could also run rfmt
-
-alias t := test
-test:
-    # test.
 
 alias w := watch
 watch:
@@ -44,3 +47,8 @@ seek:
 [script]
 script:
     Write-Host "this is in powershell, without shebang syntax"
+
+clean:
+    rm *ppm,*pbm,*pgm
+    cd out\build\x64-debug\ && ninja clean
+    
