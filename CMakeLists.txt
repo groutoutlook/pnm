@@ -8,8 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(pnm++ INTERFACE)
 target_include_directories(pnm++ INTERFACE ${PROJECT_SOURCE_DIR} )
 
-option(PNM_BUILD_SAMPLES "Builds the sample applications" ON)
-option(PNM_BUILD_TEST "Builds the tests" ON)
+option(PNM_BUILD_SAMPLES "Builds the sample applications" OFF)
+option(PNM_BUILD_TEST "Builds the tests" OFF)
 
 if (PNM_BUILD_SAMPLES)
     add_subdirectory(sample)
